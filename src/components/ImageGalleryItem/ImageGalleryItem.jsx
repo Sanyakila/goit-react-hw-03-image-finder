@@ -16,7 +16,7 @@ export class ImageGalleryItem extends Component {
     }
 
     togleModal = () => {
-        this.setState(prevState => ({ showModal: !prevState.showModal }))
+        this.setState(prevState => ({ showModal: !prevState.showModal }));
     };
 
     render() {

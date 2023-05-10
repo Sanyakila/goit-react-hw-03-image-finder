@@ -19,22 +19,22 @@ class Modal extends Component {
         window.removeEventListener('keydown', this.handleCloseByEsc);
     };
 
-    handleCloseByEsc = e => {
-        if (e.code === 'Escape') {
+    handleCloseByOverlay = (evt) => {
+        if (evt.target === evt.currentTarget) {
             this.props.onClose();
         }
     };
 
-    handleCloseByOverlay = e => {
-        if (e.code === e.currentTarget) {
+    handleCloseByEsc = evt => {
+        if (evt.code === 'Escape') {
             this.props.onClose();
         }
     };
 
     render() {
-        const { children } = this.props;
+        const {children} = this.props;
 
-        return createPortal(
+        return createPortal (
             <div className={css.Overlay} onClick={this.handleCloseByOverlay}>
                 <div className={css.Modal}>
                     {children}
